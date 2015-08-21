@@ -26,6 +26,24 @@
 #include "Logger.h"
 
 
+const char LEVEL_VERBOSE[] PROGMEM = "VERBOSE";
+const char LEVEL_NOTICE[] PROGMEM = "NOTICE";
+const char LEVEL_WARNING[] PROGMEM = "WARNING";
+const char LEVEL_ERROR[] PROGMEM = "ERROR";
+const char LEVEL_FATAL[] PROGMEM = "FATAL";
+const char LEVEL_SILENT[] PROGMEM = "SILENT";
+
+const char* const LOG_LEVEL_STRINGS[] PROGMEM = 
+{
+    LEVEL_VERBOSE,
+    LEVEL_NOTICE,
+    LEVEL_WARNING,
+    LEVEL_ERROR,
+    LEVEL_FATAL,
+    LEVEL_SILENT 
+};
+
+
 Logger::Logger(): 
     _level(WARNING), 
     _loggerOutputFunction(0)
@@ -47,31 +65,31 @@ Logger::Level Logger::getLogLevel()
 
 void Logger::verbose(const char* message)
 {
-    log(VERBOSE, "", message);
+    log(VERBOSE, message);
 }
 
 
 void Logger::notice(const char* message)
 {
-    log(NOTICE, "", message);
+    log(NOTICE, message);
 }
 
 
 void Logger::warning(const char* message)
 {
-    log(WARNING, "", message);
+    log(WARNING, message);
 }
 
 
 void Logger::error(const char* message)
 {
-    log(ERROR, "", message);
+    log(ERROR, message);
 }
 
 
 void Logger::fatal(const char* message)
 {
-    log(FATAL, "", message);
+    log(FATAL, message);
 }
 
 
@@ -105,6 +123,12 @@ void Logger::fatal(const char* module, const char* message)
 }
 
 
+void Logger::log(Level level, const char* message)
+{
+    log(level, "", message);
+}
+
+
 void Logger::log(Level level, const char* module, const char* message)
 {
     if (level >= getLogLevel())
@@ -134,29 +158,13 @@ Logger& Logger::getInstance()
 }
 
 
-// TODO: place these strings in PROGMEM
 const char* Logger::asString(Level level)
 {
-    switch (level)
-    {
-        case VERBOSE:
-            return ("VERBOSE");
-        case NOTICE:
-            return ("NOTICE ");
-        case WARNING:
-            return ("WARNING");
-        case ERROR:
-            return (" ERROR ");
-        case FATAL:
-            return (" FATAL ");
-        case SILENT:
-            return ("SILENT ");
-    };
+    return LOG_LEVEL_STRINGS[level];
 }
 
-void Logger::defaultLog(Level level, 
-                        const char* module, 
-                        const char* message)
+
+void Logger::defaultLog(Level level, const char* module, const char* message)
 {
     Serial.print(F("["));
 
@@ -168,7 +176,7 @@ void Logger::defaultLog(Level level,
     {
         Serial.print(F(": "));
         Serial.print(module);
-        Serial.print(" ");
+        Serial.print(F(" "));
     }
 
     Serial.println(message);

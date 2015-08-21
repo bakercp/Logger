@@ -27,6 +27,7 @@
 
 
 #include "Arduino.h"
+#include <avr/pgmspace.h>
 
 
 class Logger
@@ -62,6 +63,8 @@ public:
     static void error(const char* module, const char* message);
     static void fatal(const char* module, const char* message);
 
+    static void log(Level level, const char* message);
+
     static void log(Level level, const char* module, const char* message);
 
     static void setOutputFunction(LoggerOutputFunction loggerOutputFunction);
@@ -80,4 +83,5 @@ private:
     Level _level;
 
     LoggerOutputFunction _loggerOutputFunction;
+
 };
