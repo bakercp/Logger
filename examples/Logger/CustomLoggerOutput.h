@@ -3,7 +3,7 @@
 class CustomLoggerOutput
 {
 public:
-  static void log(Logger::Level level, const char* module, const char* message)
+  static void customLogger(Logger::Level level, const char* module, const char* message)
   {
     Serial.print(F("CustomLogger: ["));
 
