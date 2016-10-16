@@ -7,7 +7,7 @@
 #######################################
 
 Logger	KEYWORD1
-Level KEYWORD1
+Level	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -16,25 +16,25 @@ Level KEYWORD1
 setLogLevel	KEYWORD2
 getLogLevel	KEYWORD2
 
-verbose KEYWORD2
-warning KEYWORD2
-notice KEYWORD2
-error KEYWORD2
-fatal KEYWORD2
+verbose	KEYWORD2
+warning	KEYWORD2
+notice	KEYWORD2
+error	KEYWORD2
+fatal	KEYWORD2
 
-fatal KEYWORD2
-setOutputFunction KEYWORD2
-getInstance KEYWORD2
-asString KEYWORD2
+fatal	KEYWORD2
+setOutputFunction	KEYWORD2
+getInstance	KEYWORD2
+asString	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
 #######################################
 
-VERBOSE LITERAL1
-NOTICE LITERAL1
-WARNING LITERAL1
-ERROR LITERAL1
-FATAL LITERAL1
-SILENT LITERAL1
+VERBOSE	LITERAL1
+NOTICE	LITERAL1
+WARNING	LITERAL1
+ERROR	LITERAL1
+FATAL	LITERAL1
+SILENT	LITERAL1
 
