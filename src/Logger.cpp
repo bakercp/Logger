@@ -117,7 +117,7 @@ void Logger::notice(const char* module, const char* message)
 
 void Logger::warning(const char* module, const char* message)
 {
-    log(FATAL, module, message);
+    log(WARNING, module, message);
 }
 
 
