@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2013-2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2013-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -40,12 +40,12 @@ const char* const LOG_LEVEL_STRINGS[] PROGMEM =
     LEVEL_WARNING,
     LEVEL_ERROR,
     LEVEL_FATAL,
-    LEVEL_SILENT 
+    LEVEL_SILENT
 };
 
 
-Logger::Logger(): 
-    _level(WARNING), 
+Logger::Logger():
+    _level(WARNING),
     _loggerOutputFunction(0)
 {
 }

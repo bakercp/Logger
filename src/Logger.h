@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2013-2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2013-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -43,12 +43,12 @@ public:
         SILENT
     };
 
-    typedef void (*LoggerOutputFunction)(Level level, 
-                                         const char* module, 
+    typedef void (*LoggerOutputFunction)(Level level,
+                                         const char* module,
                                          const char* message);
 
     static void setLogLevel(Level level);
-    
+
     static Level getLogLevel();
 
     static void verbose(const char* message);
