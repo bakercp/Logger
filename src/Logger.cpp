@@ -25,15 +25,25 @@
 
 #include "Logger.h"
 
+#if defined(ARDUINO_ARCH_AVR)
+  #include <avr/pgmspace.h>
+#endif
 
-const char LEVEL_VERBOSE[] PROGMEM = "VERBOSE";
-const char LEVEL_NOTICE[] PROGMEM = "NOTICE";
-const char LEVEL_WARNING[] PROGMEM = "WARNING";
-const char LEVEL_ERROR[] PROGMEM = "ERROR";
-const char LEVEL_FATAL[] PROGMEM = "FATAL";
-const char LEVEL_SILENT[] PROGMEM = "SILENT";
+// There appears to be an incompatibility with ESP8266 2.3.0.
+#if defined(ESP8266)
+  #define MEM_TYPE
+#else
+  #define MEM_TYPE PROGMEM
+#endif
 
-const char* const LOG_LEVEL_STRINGS[] PROGMEM = 
+const char LEVEL_VERBOSE[] MEM_TYPE = "VERBOSE";
+const char LEVEL_NOTICE[] MEM_TYPE = "NOTICE";
+const char LEVEL_WARNING[] MEM_TYPE = "WARNING";
+const char LEVEL_ERROR[] MEM_TYPE = "ERROR";
+const char LEVEL_FATAL[] MEM_TYPE = "FATAL";
+const char LEVEL_SILENT[] MEM_TYPE = "SILENT";
+
+const char* const LOG_LEVEL_STRINGS[] MEM_TYPE =
 {
     LEVEL_VERBOSE,
     LEVEL_NOTICE,

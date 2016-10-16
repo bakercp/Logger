@@ -27,8 +27,12 @@
 
 
 #include "Arduino.h"
-#include <avr/pgmspace.h>
 
+#if defined(ARDUINO_ARCH_AVR)
+  #include <avr/pgmspace.h>
+#elif defined(ESP8266)
+  #include <pgmspace.h>
+#endif
 
 class Logger
 {
