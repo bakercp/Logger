@@ -56,20 +56,32 @@ public:
     static Level getLogLevel();
 
     static void verbose(const char* message);
+    static void verbose(const String message);
     static void notice(const char* message);
+    static void notice(const String message);
     static void warning(const char* message);
+    static void warning(const String message);
     static void error(const char* message);
+    static void error(const String message);
     static void fatal(const char* message);
+    static void fatal(const String message);
 
     static void verbose(const char* module, const char* message);
+    static void verbose(const String module, const String message);
     static void notice(const char* module, const char* message);
+    static void notice(const String module, const String message);
     static void warning(const char* module, const char* message);
+    static void warning(const String module, const String message);
     static void error(const char* module, const char* message);
+    static void error(const String module, const String message);
     static void fatal(const char* module, const char* message);
+    static void fatal(const String module, const String message);
 
     static void log(Level level, const char* message);
+    static void log(Level level, const String message);
 
     static void log(Level level, const char* module, const char* message);
+    static void log(Level level, const String module, const String message);
 
     static void setOutputFunction(LoggerOutputFunction loggerOutputFunction);
 
