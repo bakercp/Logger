@@ -78,8 +78,17 @@ void Logger::verbose(const char* message)
     log(VERBOSE, message);
 }
 
+void Logger::verbose(const String message)
+{
+    log(VERBOSE, message);
+}
 
 void Logger::notice(const char* message)
+{
+    log(NOTICE, message);
+}
+
+void Logger::notice(const String message)
 {
     log(NOTICE, message);
 }
@@ -90,8 +99,18 @@ void Logger::warning(const char* message)
     log(WARNING, message);
 }
 
+void Logger::warning(const String message)
+{
+    log(WARNING, message);
+}
+
 
 void Logger::error(const char* message)
+{
+    log(ERROR, message);
+}
+
+void Logger::error(const String message)
 {
     log(ERROR, message);
 }
@@ -102,8 +121,18 @@ void Logger::fatal(const char* message)
     log(FATAL, message);
 }
 
+void Logger::fatal(const String message)
+{
+    log(FATAL, message);
+}
+
 
 void Logger::verbose(const char* module, const char* message)
+{
+    log(VERBOSE, module, message);
+}
+
+void Logger::verbose(const String module, const String message)
 {
     log(VERBOSE, module, message);
 }
@@ -114,8 +143,18 @@ void Logger::notice(const char* module, const char* message)
     log(NOTICE, module, message);
 }
 
+void Logger::notice(const String module, const String message)
+{
+    log(NOTICE, module, message);
+}
+
 
 void Logger::warning(const char* module, const char* message)
+{
+    log(WARNING, module, message);
+}
+
+void Logger::warning(const String module, const String message)
 {
     log(WARNING, module, message);
 }
@@ -126,14 +165,29 @@ void Logger::error(const char* module, const char* message)
     log(ERROR, module, message);
 }
 
+void Logger::error(const String module, const String message)
+{
+    log(ERROR, module, message);
+}
+
 
 void Logger::fatal(const char* module, const char* message)
 {
     log(FATAL, module, message);
 }
 
+void Logger::fatal(const String module, const String message)
+{
+    log(FATAL, module, message);
+}
+
 
 void Logger::log(Level level, const char* message)
+{
+    log(level, "", message);
+}
+
+void Logger::log(Level level, const String message)
 {
     log(level, "", message);
 }
@@ -152,6 +206,11 @@ void Logger::log(Level level, const char* module, const char* message)
             getInstance().defaultLog(level, module, message);
         }
     }
+}
+
+void Logger::log(Level level, const String module, const String message)
+{
+	log(level, module.c_str(), message.c_str());
 }
 
 
